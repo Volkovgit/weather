@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { Container, Card, CircularProgress, Grid } from "@material-ui/core";
 import { useSelector, useDispatch } from "react-redux";
 import { getPosition } from "../redux/weatherReducer";
+import Loader from "./Loader";
+import Weather from "./Weather";
 
 function Home() {
   const dispatch = useDispatch();
@@ -11,20 +13,16 @@ function Home() {
   useEffect(() => {
     dispatch(getPosition());
   }, []);
-  console.log(weather);
+
   if (isLoading) {
     return (
-      <Container>
-        <Grid container direction="row" justify="center" alignItems="center">
-          <CircularProgress />
-        </Grid>
-      </Container>
+      <Loader/>
     );
   }
-  // let currentWeather = {main:weather.weather.main,wind:weather.wind,sunrise:weather.sys.sunrise,sunset:weather.sys.sunset, city:weather.name, time:weather.dt};
+
   return (
     <Container>
-      <Card variant="outlined">Город:{weather.name}</Card>
+      <Weather main={weather.weather[0].main} wind={weather.wind} sunrise={weather.sys.sunrise} sunset={weather.sys.sunset} city={weather.name} time={weather.dt}/>
     </Container>
   );
 }
