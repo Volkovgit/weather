@@ -2,8 +2,9 @@ import * as axios from "axios";
 
 const LOAD_DATA = "LOAD_DATA";
 const SET_COORD = "SET_COORD";
+const SWITCH_LOADING = "SWITCH_LOADING"
 
-const initialstate = { weather: {}};
+const initialstate = { weather: {}, isLoading:true};
 
 export const weatherReducer = (state = initialstate, action) => {
   switch (action.type) {
@@ -13,6 +14,9 @@ export const weatherReducer = (state = initialstate, action) => {
     case SET_COORD: {
       // debugger;
       return { ...state, coords: { ...action.value } };
+    }
+    case SWITCH_LOADING:{
+      return {...state,isLoading:!state.isLoading}
     }
     default: {
       return state;
@@ -25,10 +29,14 @@ export const setLoadData = (data = "value") => ({
   value: data,
 });
 
-export const setCoord = (data) => ({
-  type: SET_COORD,
-  value: data,
-});
+export const setLoading = ()=>({
+  type:SWITCH_LOADING
+})
+
+// export const setCoord = (data) => ({
+//   type: SET_COORD,
+//   value: data,
+// });
 
 export const getWeather = () => {
   return (dispatch) => {
@@ -56,6 +64,7 @@ export const getPosition = () => {
         const urlWeather = `https://api.openweathermap.org/data/2.5/weather?lat=${coordinats[0]}&lon=${coordinats[1]}&appid=${API_KEY}`;
         axios.get(urlWeather).then((response) => {
           dispatch(setLoadData(response.data));
+          dispatch(setLoading());
         }).catch(()=>console.log("error"));
       });
   };
