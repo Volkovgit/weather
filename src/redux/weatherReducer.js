@@ -3,9 +3,9 @@ import * as axios from "axios";
 const LOAD_DATA = "LOAD_DATA";
 const SET_COORD = "SET_COORD";
 const SWITCH_LOADING = "SWITCH_LOADING"
-
+const WEATHER_BY_NAME = "WEATHER_BY_NAME"
 const initialstate = { weather: {}, isLoading:true};
-
+const API_KEY = "b8180dd80bc383683b23aadabe04b513";
 export const weatherReducer = (state = initialstate, action) => {
   switch (action.type) {
     case LOAD_DATA: {
@@ -38,20 +38,20 @@ export const setLoading = ()=>({
 //   value: data,
 // });
 
-export const getWeather = () => {
-  return (dispatch) => {
-    const url =
-      "https://api.openweathermap.org/data/2.5/weather?q=London&appid=ac064332e753f882489837dae6bcd333";
+// export const getWeather = () => {
+//   return (dispatch) => {
+//     const url =
+//       "https://api.openweathermap.org/data/2.5/weather?q=London&appid=ac064332e753f882489837dae6bcd333";
 
-    axios.get(url).then((response) => {
-      dispatch(setLoadData(response.data));
-    });
-  };
-};
+//     axios.get(url).then((response) => {
+//       dispatch(setLoadData(response.data));
+//     });
+//   };
+// };
 
 export const getPosition = () => {
   return (dispatch) => {
-    const API_KEY = "b8180dd80bc383683b23aadabe04b513";
+    // const API_KEY = "b8180dd80bc383683b23aadabe04b513";
     const coordinats = [];
     const url = "https://ipapi.co/json/";
     axios
@@ -69,3 +69,17 @@ export const getPosition = () => {
       });
   };
 };
+
+export const byNameAC = (text)=>({
+  type: WEATHER_BY_NAME,
+  city: text
+})
+
+export const getWeatherByName = (text)=>{
+  
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${text}&appid=${API_KEY}`
+  
+  return (dispatch)=>{
+    axios.get(url).then(response => dispatch(setLoadData(response.data)))
+  }
+}
