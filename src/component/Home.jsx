@@ -14,14 +14,14 @@ const useStyles = makeStyles({
     height: "1000px",
     width: "300px",
     backgroundRepeat: "no-repeat",
-    fontFamily: "fontsource-roboto",
+    color:"black"
   },
   tempMoreZero: {
     backgroundImage: `url(${bcgMore})`,
     height: "1000px",
     width: "300px",
     backgroundRepeat: "no-repeat",
-    fontFamily: "fontsource-roboto",
+    color:"white"
   },
 });
 
@@ -47,12 +47,41 @@ function Home() {
     return <Loader />;
   }
 
+  const getNormalDate =(dataObj)=>{
+    const months = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
+    const weekDays = ['Понедельник','Вторник','Среда','Четверг','Пятница','Суббота','Воскресенье']
+    const Year = dataObj.getFullYear();
+    const Mouth = months[dataObj.getMonth()];
+    const Day = weekDays[dataObj.getDay()-1];
+
+
+    return [Year,Mouth,Day]
+  }
+
+  const getNormalWeather = (type)=>{
+    console.log(type)
+    const weathes = {
+      Thunderstorm: "Гроза",
+      Drizzle: "Мелкий дождь",
+      Rain: "Дождь",
+      Snow:"Снег",
+      Clear:"Чистое небо",
+      Clouds:"Облака",
+      Mist:"Легкий туман",
+      Smoke:"Задымленность",
+      Haze:"Затуманивание",
+      Dust:"Пыль",
+      Sand:"Месок",
+      Ash:"Пепел",
+      Squall:"Сильный ветер",
+      Tornado:"Торнадо",
+    }
+    return weathes[type]
+  }
+
   const date = new Date(weather.dt * 1000);
   const temp = Math.round(weather.main.temp - 274);
-  const sunrise = weather.sys.sunrise;
-  const sunset = weather.sys.sunset;
   const city = weather.name;
-  const wind = weather.wind;
   const main = weather.weather[0].main;
 
   return (
@@ -61,12 +90,9 @@ function Home() {
     >
       <Weather
         findByName={clickButton}
-        main={main}
-        wind={wind}
-        sunrise={sunrise}
-        sunset={sunset}
+        main={getNormalWeather(main)}
         city={city}
-        time={date}
+        time={getNormalDate(date)}
         temp={temp}
       />
     </Container>
