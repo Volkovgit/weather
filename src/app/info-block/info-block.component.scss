@@ -1,0 +1,33 @@
+.info-block {
+  // background-color: black;
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: flex-start;
+  &__svg {
+    height: 40%;
+    width: 80%;
+  }
+  &-text {
+    &__helper {
+      color: gray;
+      display: inline;
+      font-size: 10px;
+      width: 100%;
+    }
+    &__number {
+      color: black;
+      display: inline;
+      font-size: 35px;
+      width: 100%;
+    }
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+}

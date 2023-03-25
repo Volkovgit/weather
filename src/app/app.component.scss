@@ -56,11 +56,23 @@
 }
 
 .temperature {
-  display: inline-block;
+    margin-top: 5%;
+  &__gradus {
+    line-height:0.7;
+    font-size: 150px;
+    display: inline-block;
+  }
+  &-context{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+  justify-content: space-between;
   color: white;
-  font-size: 150px;
+
   //   margin-top: 5%;
-  display: inline;
+  display: flex;
 }
 
 .bottom {
@@ -70,8 +82,8 @@
     background-color: white;
     border-radius: 5% 5% 0 0;
   }
-  &-header{
-    width:100%;
+  &-header {
+    width: 100%;
     text-align: center;
     display: inline-block;
     margin-top: 5%;
@@ -79,45 +91,17 @@
     font-weight: 700;
     height: auto;
   }
-  &-info{
+  &-info {
     margin-top: 10%;
-    width:100%;
-    height:150px;
+    width: 100%;
+    height: 150px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     justify-items: center;
-
-    .info-block{
-        // background-color: black;
-        width:80%;
-        height:100%;
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        flex-direction: row;
-        &__svg{
-            height:40%;
-            width:80%;
-        }
-        &-text{
-            &__helper{
-                color:gray;
-                display: inline;
-                font-size: 10px;
-                width:100%;
-            }
-            &__number{
-                color:black;
-                display: inline;
-                font-size: 35px;
-                width:100%;
-            }
-            text-align: center;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            width:100%;
-        }
-    }
   }
+}
+
+info-block {
+  display: flex;
+  justify-content: center;
 }
