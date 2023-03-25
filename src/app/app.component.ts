@@ -9,4 +9,9 @@ export class AppComponent {
   location = 'Yaroslavl';
   today = 'Today, October 15 5:45'
   temperature='23°'
+  todayWrapperVisible = false;
+
+  viewPosition(){
+    this.todayWrapperVisible = !this.todayWrapperVisible;
+  }
 }
