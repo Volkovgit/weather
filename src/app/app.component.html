@@ -5,7 +5,7 @@
         <div class="location-svg">  
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" ><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 16.016c1.245.529 2 1.223 2 1.984 0 1.657-3.582 3-8 3s-8-1.343-8-3c0-.76.755-1.456 2-1.984"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8.444C17 11.537 12 17 12 17s-5-5.463-5-8.556C7 5.352 9.239 3 12 3s5 2.352 5 5.444z"/><circle cx="12" cy="8" r="1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
         </div>
-        <span class="location-text">{{location}}</span>
+        <span class="location-text">{{weather.location}}</span>
         <div *ngIf="todayWrapperVisible" class="location-position">Today, {{fullDate.mounth}} {{fullDate.day}} {{fullDate.hours}}:{{fullDate.minutes}}</div>
       </div>
       <div class="location-button" (click)="viewPosition()">  
@@ -25,9 +25,9 @@
     <div class="temperature">
       <div *ngIf="todayWrapperVisible" class="temperature-context">
         <svg viewBox="0 0 24 24" width="20%" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="File / Cloud"> <path id="Vector" d="M19 11C21.2091 11 23 12.7909 23 15C23 17.2091 21.2091 19 19 19L6 19.0001C3.23858 19.0001 1 16.7613 1 13.9999C1 11.3498 3.06206 9.18144 5.66895 9.01082C6.79019 6.64004 9.20335 5 12 5C15.5267 5 18.4447 7.60802 18.9297 11.0006C18.9532 11.0002 18.9764 11 19 11Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg>
-        Clouds
+        {{weather.weatherType}}
       </div>
-      <span class="temperature__gradus">{{temperature}}</span></div>
+      <span class="temperature__gradus">{{weather.temperature}}°</span></div>
   </div>
   <div class="bottom-wrapper">
     <div class="bottom-header">

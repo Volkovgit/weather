@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
@@ -6,8 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  location = 'Yaroslavl';
-  temperature = '23°';
+  weather = {
+    location : '',
+    temperature : 0,
+    weatherType : ""
+  }
   todayWrapperVisible = false;
   dateToday: Date = new Date();
   fullDate = {
@@ -17,7 +21,7 @@ export class AppComponent {
     minutes: this.dateToday.getMinutes()
   };
 
-  constructor(){
+  constructor(private httpClient: AppService){
     setInterval(() => {
       this.dateToday = new Date();
       this.fullDate = {
@@ -27,6 +31,17 @@ export class AppComponent {
         minutes: this.dateToday.getMinutes()
       }
     }, 1000);
+
+    this.httpClient.get('https://ipapi.co/json/').subscribe((ipInfo) => {
+      const lat = Math.round(ipInfo.latitude)
+      const lon = Math.round(ipInfo.longitude)
+      this.httpClient.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=b8180dd80bc383683b23aadabe04b513`).subscribe((weatherData) => {
+        console.log(weatherData);
+        this.weather.location = weatherData.name
+        this.weather.temperature = Math.round(weatherData.main.temp - 273)
+        this.weather.weatherType = weatherData.weather[0].main
+      })
+    })
   }
 
   viewPosition() {
