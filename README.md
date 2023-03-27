@@ -1,6 +1,5 @@
-# WeatherApp
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
+# Weather app v2.0
+Переписываю старое приложение из 2020 с реакта на ангуляр. // изменю описание как допишу приложение и задеплою
 
 ## Development server
 
