@@ -8,7 +8,11 @@ import { Component, Input, OnInit } from '@angular/core';
 export class InfoBlockComponent implements OnInit {
 
   @Input()
-  svgType = 'sunshine'
+  svgType = 'sunshine';
+  @Input()
+  inputText = 'weather'
+  @Input()
+  inputNumber = 1
 
   constructor() { }
 

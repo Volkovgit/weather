@@ -1,5 +1,4 @@
 .info-block {
-  // background-color: black;
   width: 80%;
   height: 100%;
   display: flex;
@@ -7,9 +6,13 @@
   flex-wrap: wrap;
   flex-direction: row;
   align-content: flex-start;
-  &__svg {
-    height: 40%;
-    width: 80%;
+  &-svg {
+    width:100%;
+    display: flex;
+    justify-content: center;
+    &__icon{
+      width:50%;
+    }
   }
   &-text {
     &__helper {
