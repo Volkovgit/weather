@@ -1,23 +1,21 @@
 <div class="wrapper">
   <div class="header-wrapper">
-    <div class="location">
-      <div class="location-wrapper">
-        <div class="location-svg">
+    <div class="main-info">
+      <div class="location">
+        <div class="location__svg">
           <img src="../assets/svg/mapMarker.svg" alt="" />
         </div>
         <span class="location-text">{{ weather.name }}</span>
-        <div class="location-position">
-          Today, {{ fullDate.mounth }} {{ fullDate.day }}
-          {{ fullDate.hours }}:{{ fullDate.minutes }}
-        </div>
+      </div>
+      <div class="today">
+        Today, {{ fullDate.mounth }} {{ fullDate.day }}
+        {{ fullDate.hours }}:{{ fullDate.minutes }}
       </div>
     </div>
 
-    <div class="temperature">
-      <div class="temperature-context">
-        <img src="../assets/svg/clouds.svg" />
-        {{ weather.weather[0].description }}
-      </div>
+    <div class="weather-short">
+      <img src="../assets/svg/clouds.svg" />
+        <span>{{ weather.weather[0].description }}</span>
     </div>
   </div>
   <div class="bottom-wrapper">

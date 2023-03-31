@@ -1,16 +1,10 @@
 .wrapper {
   width: 100%;
-  @media screen and (max-width: 500px) {
-    background-image: url("../img/nightImg.jpg");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-content: space-between;
-  @media screen and (min-width:500px) {
+  @media screen and (min-width: 500px) {
     justify-content: center;
     flex-direction: column;
     align-content: space-around;
@@ -18,82 +12,51 @@
 }
 
 .header-wrapper {
-  width: 100%;
-  height: auto;
-  margin-top: 5%;
-  margin-left: 5%;
-  @media screen and (min-width:500px) {
-    width:50%;
-    background-color: gray;
-    border-radius: 10px;
-    margin: 0 0 2% 0;
-  }
+  width: 50%;
+  border-radius: 10px;
+  margin: 0 0 2% 0;
+  display: flex;
+  justify-content: space-around;
+  -webkit-box-shadow: 0px 0px 36px 4px rgba(34, 60, 80, 0.2);
+-moz-box-shadow: 0px 0px 36px 4px rgba(34, 60, 80, 0.2);
+box-shadow: 0px 0px 36px 4px rgba(34, 60, 80, 0.2);
+}
+
+.main-info {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .location {
   width: 100%;
   height: auto;
   font-size: 20px;
-  
-  color: white;
-  @media screen and (min-width:500px) {
-    color:black;
-  }
+  color: black;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-
-  &-wrapper {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-  }
-
-  &-position {
-    width: 100%;
-    font-size: 15px;
-  }
-
-  &-text {
-    display: inline-block;
-    width: auto;
-  }
-
-  &-svg {
+  &__svg {
     display: inline-block;
     width: 25px;
   }
-
-  &-button {
-    display: inline-block;
-    width: 30px;
-    margin-right: 5%;
-    @media screen and (min-width:500px) {
-      display: none;
-    }
-  }
 }
 
-.temperature {
-  margin-top: 5%;
-  &__gradus {
-    line-height: 0.7;
-    font-size: 150px;
-    display: inline-block;
-  }
-  &-context {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
-  }
-  justify-content: space-between;
-  color: white;
-  @media screen and (min-width:500px) {
-    color:black;
-  }
-  //   margin-top: 5%;
+.weather-short {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  & img {
+    height: 50%;
+  }
+  & span {
+    margin-left: 1%;
+  }
 }
 
 .bottom {
@@ -102,10 +65,12 @@
     height: 20%;
     background-color: white;
     border-radius: 5% 5% 0 0;
-    @media screen and (min-width:500px) {
-      width:50%;
-      background-color: gray;
-      border-radius: 10px;;
+    @media screen and (min-width: 500px) {
+      width: 50%;
+      -webkit-box-shadow: 0px 0px 36px 4px rgba(34, 60, 80, 0.2);
+      -moz-box-shadow: 0px 0px 36px 4px rgba(34, 60, 80, 0.2);
+      box-shadow: 0px 0px 36px 4px rgba(34, 60, 80, 0.2);
+      border-radius: 10px;
     }
   }
   &-header {

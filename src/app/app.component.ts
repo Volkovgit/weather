@@ -55,7 +55,6 @@ export class AppComponent {
     name: "",
     cod: 0,
   };
-  todayWrapperVisible = false;
   dateToday: Date = new Date();
   fullDate = {
     mounth: this.setMounth(),
@@ -92,9 +91,6 @@ export class AppComponent {
     });
   }
 
-  viewPosition() {
-    this.todayWrapperVisible = !this.todayWrapperVisible;
-  }
 
   setMounth(): String {
     switch (this.dateToday.getMonth()) {
