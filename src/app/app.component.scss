@@ -1,3 +1,14 @@
+@mixin wrapper-styles{
+  width: 50%;
+  max-width: 500px;
+  min-width: 350px;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 36px 4px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 0px 36px 4px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 0px 36px 4px rgba(34, 60, 80, 0.2);
+  border-radius: 10px;
+}
+
 .wrapper {
   width: 100%;
   display: flex;
@@ -14,25 +25,19 @@
 }
 
 .header-wrapper {
-  width: 50%;
-  background-color: white;
-  max-width: 500px;
-  min-width: 350px;
-  border-radius: 10px;
   margin: 0 0 2% 0;
   display: flex;
   justify-content: space-around;
-  -webkit-box-shadow: 0px 0px 36px 4px rgba(34, 60, 80, 0.2);
-  -moz-box-shadow: 0px 0px 36px 4px rgba(34, 60, 80, 0.2);
-  box-shadow: 0px 0px 36px 4px rgba(34, 60, 80, 0.2);
+  @include wrapper-styles();
 }
 
 .main-info {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
 }
 
 .location {
@@ -42,10 +47,13 @@
   color: black;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   &__svg {
     display: inline-block;
     width: 25px;
+  }
+  &-text{
+    font-size: 20px;
   }
 }
 
@@ -57,7 +65,7 @@
   justify-content: center;
   align-content: center;
   & img {
-    height: 50%;
+    height: 30%;
   }
   & span {
     margin-left: 1%;
@@ -66,15 +74,7 @@
 
 .bottom {
   &-wrapper {
-    width: 50%;
-    max-width: 500px;
-    min-width: 350px;
-    height: 20%;
-    background-color: white;
-    -webkit-box-shadow: 0px 0px 36px 4px rgba(34, 60, 80, 0.2);
-    -moz-box-shadow: 0px 0px 36px 4px rgba(34, 60, 80, 0.2);
-    box-shadow: 0px 0px 36px 4px rgba(34, 60, 80, 0.2);
-    border-radius: 10px;
+    @include wrapper-styles();
   }
   &-header {
     width: 100%;
